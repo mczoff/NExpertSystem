@@ -12,19 +12,23 @@ namespace NExpertSystem.Sample
         {
             RuleInferenceEngine ruleInferenceEngine = new RuleInferenceEngine();
 
-            Rule rule = new Rule("hard_freelancer");
+            Rule rule = new Rule("seo_hard_freelancer");
             rule.AddAntecedents(new GreaterEqualClause("experience", "4"));
-            rule.Consequent = new BaseClause("freelancer", "easy_freelancer");
+            rule.AddAntecedents(new IsClause("type", "SEO"));
+            rule.Consequent = new BaseClause("freelancer", "Oleg");
             ruleInferenceEngine.Rules.Add(rule);
 
-            rule = new Rule("easy_freelancer");
-            rule.AddAntecedents(new IsClause("experience", "1"));
-            rule.Consequent = new BaseClause("freelancer", "hard_freelancer");
+            rule = new Rule("seo_easy_freelancer");
+            rule.AddAntecedents(new LessClause("experience", "4"));
+            rule.AddAntecedents(new IsClause("type", "SEO"));
+            rule.Consequent = new BaseClause("freelancer", "Ivan");
+
             ruleInferenceEngine.Rules.Add(rule);
 
             List<BaseClause> unproved_conditions = new List<BaseClause>();
 
-            ruleInferenceEngine.AddFact(new IsClause("experience", "5"));
+            Console.WriteLine("Write freencer experience:");
+            ruleInferenceEngine.AddFact(new IsClause("experience", Console.ReadLine()));
 
             BaseClause conclusion = ruleInferenceEngine.Infer("freelancer", unproved_conditions);
 
