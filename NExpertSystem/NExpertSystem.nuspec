@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://spdx.org/licenses/MIT.html</licenseUrl>
+    <projectUrl>https://github.com/mczoff/NRepository</projectUrl>
+    <iconUrl>https://github.com/NuGet/Samples/blob/master/PackageIconNuspecExample/icon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Standart preset expert systems</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>.net expertSystem</tags>
+  </metadata>
+</package>
