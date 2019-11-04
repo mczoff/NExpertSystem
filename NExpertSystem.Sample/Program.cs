@@ -28,6 +28,8 @@ namespace NExpertSystem.Sample
             List<BaseClause> unproved_conditions = new List<BaseClause>();
 
             Console.WriteLine("Write freencer experience:");
+
+            ruleInferenceEngine.AddFact(new IsClause("type", Console.ReadLine()));
             ruleInferenceEngine.AddFact(new IsClause("experience", Console.ReadLine()));
 
             BaseClause conclusion = ruleInferenceEngine.Infer("freelancer", unproved_conditions);

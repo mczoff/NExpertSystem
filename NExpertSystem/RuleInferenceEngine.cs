@@ -29,18 +29,13 @@ namespace NExpertSystem
 
             foreach (Rule rule in Rules)
             {
-                foreach (BaseClause antecedent in rule.Antecedents)
-                {
-                    if (FactsEngine.IsFact(antecedent))
-                    {
-                        return rule.Consequent;
-                    }
+                var intersect = rule.Antecedents.All(t => FactsEngine.IsFact(t));
 
-                    break;
-                }
+                if (intersect)
+                    conclusion = rule.Consequent;
             }
 
-            return null;
+            return conclusion;
         }
     }
 }
